@@ -30,16 +30,25 @@ function animate(){
 animate();
 
 // SCENES
-const scenes=[...document.querySelectorAll('.scene')];
-function show(i){
- scenes.forEach(s=>s.classList.remove('active'));
- scenes[i].classList.add('active');
-}
+const s1=document.getElementById('scene1');
+const s2=document.getElementById('scene2');
+const s3=document.getElementById('scene3');
+const s4=document.getElementById('scene4');
 
-setTimeout(()=>show(1),3000);
-setTimeout(()=>show(2),6500);
+setTimeout(()=>{s1.classList.remove('active');s2.classList.add('active');},3000);
+setTimeout(()=>{s2.classList.remove('active');s3.classList.add('active');},6500);
 
-document.getElementById('yes').addEventListener('click',()=>{
- show(3);
+// YES ACTION
+document.getElementById('yes').onclick=()=>{
+ s3.classList.remove('active');
+ s4.classList.add('active');
  document.getElementById('song').play();
+};
+
+// NO BUTTON DODGE 😄
+const noBtn = document.getElementById('no');
+noBtn.addEventListener('mouseenter', () => {
+  const x = Math.random() * 200 - 100;
+  const y = Math.random() * 120 - 60;
+  noBtn.style.transform = `translate(${x}px, ${y}px)`;
 });
