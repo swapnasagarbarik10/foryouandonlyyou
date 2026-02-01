@@ -31,8 +31,6 @@ animate();
 
 // SCENES
 const scenes=[...document.querySelectorAll('.scene')];
-let index=0;
-
 function show(i){
  scenes.forEach(s=>s.classList.remove('active'));
  scenes[i].classList.add('active');
